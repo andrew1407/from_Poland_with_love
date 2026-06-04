@@ -4,12 +4,12 @@ A Python interpreter that converts arithmetic expressions to and from Polish (pr
 
 ## Overview
 
-The core engine, `PolishNotation`, performs two conversions:
+The core engine, [`PolishNotation`](src/interpreter/Interpreter.py), performs two conversions:
 
 - **toPolish** — translates a standard infix expression (for example `(a + b) / c`) into Polish notation (`a b + c /`).
 - **fromPolish** — translates a Polish-notation expression back into infix form, restoring parentheses according to operator precedence.
 
-The interpreter supports the operators `+`, `-`, `*`, `/`, and `^`, parentheses, negative operands, and multi-character variable names. Results are computed by a stack-based algorithm that respects operator priorities. A `Memoizator` caches each conversion as a regular-expression pattern, so structurally identical expressions (and their inverse) are returned from cache instead of being recomputed.
+The interpreter supports the operators `+`, `-`, `*`, `/`, and `^`, parentheses, negative operands, and multi-character variable names. Results are computed by a stack-based algorithm that respects operator priorities. A [`Memoizator`](src/interpreter/Memoizator.py) caches each conversion as a regular-expression pattern, so structurally identical expressions (and their inverse) are returned from cache instead of being recomputed.
 
 In both modes the produced result is also copied to the system clipboard.
 
@@ -17,8 +17,8 @@ In both modes the produced result is also copied to the system clipboard.
 
 | Mode | Interface | Entry point |
 | --- | --- | --- |
-| Console | Interactive text prompt | `ConsoleIOI` |
-| Window | Tkinter GUI | `WindowIOI` |
+| Console | Interactive text prompt | [`ConsoleIOI`](src/ioInterfaces/ConsoleIOI.py) |
+| Window | Tkinter GUI | [`WindowIOI`](src/ioInterfaces/WindowIOI.py) |
 
 ### Console mode
 
@@ -48,10 +48,10 @@ The GUI presents an input field, a drop-down to select `toPolish` or `fromPolish
 
 Install dependencies:
 
-- Linux: `./setupLinux.sh` (installs `xclip` and `pyperclip`)
-- Windows: `setupWindows.bat` (installs `pyperclip`)
+- Linux: [`./setupLinux.sh`](setupLinux.sh) (installs `xclip` and `pyperclip`)
+- Windows: [`setupWindows.bat`](setupWindows.bat) (installs `pyperclip`)
 
-Run from the `src` directory. The first command-line argument selects the mode (`console` or `window`); console mode is used when no argument is given:
+Run from the [`src`](src) directory. The first command-line argument selects the mode (`console` or `window`); console mode is used when no argument is given:
 
 ```bash
 cd src
@@ -67,9 +67,9 @@ cd src
 python tests.py
 ```
 
-`tests.py` checks round-trip conversions against expected results and times cached versus freshly computed conversions.
+[`tests.py`](src/tests.py) checks round-trip conversions against expected results and times cached versus freshly computed conversions.
 
-A `exeBuilder.bat` script is provided to package a standalone Windows executable with PyInstaller.
+A [`exeBuilder.bat`](exeBuilder.bat) script is provided to package a standalone Windows executable with PyInstaller.
 
 ## Project structure
 
