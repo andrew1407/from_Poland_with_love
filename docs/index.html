@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <title>From Poland with Love</title>
+  <meta name="description" content="Infix ⇄ Polish notation interpreter, running the original Python sources in the browser with Brython.">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.12.5/brython.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.12.5/brython_stdlib.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <h1>FROM POLAND WITH LOVE <span class="flag" role="img" aria-label="Polish flag">🇵🇱</span></h1>
+    <p class="tagline">Convert arithmetic expressions to and from Polish notation — the original Python interpreter, running in your browser.</p>
+    <p class="meta">
+      <a href="https://github.com/Andrew1407/from_Poland_with_love">Source on GitHub</a>
+    </p>
+  </header>
+
+  <main>
+    <!-- Window mode: a faithful replica of the Tkinter window -->
+    <section id="window-mode" aria-labelledby="window-title">
+      <h2 id="window-title">Window mode</h2>
+      <p class="hint">Same layout as <code>WindowIOI</code> (Tkinter): input, mode selector, Interpret button.</p>
+      <div class="tk-window">
+        <div class="tk-titlebar">
+          <span class="tk-title">FROM POLAND WITH LOVE</span>
+        </div>
+        <form id="tk-form" class="tk-body" autocomplete="off">
+          <label for="tk-input" class="tk-label">Enter a case:</label>
+          <input id="tk-input" class="tk-entry" type="text" spellcheck="false" autocapitalize="off" autocorrect="off" enterkeyhint="go" value="(a + b) / c">
+          <button id="tk-btn" class="tk-button" type="submit" disabled>Interpret</button>
+          <select id="tk-mode" class="tk-option" aria-label="Interpretation mode">
+            <option value="toPolish">toPolish</option>
+            <option value="fromPolish">fromPolish</option>
+          </select>
+          <output id="tk-output" class="tk-output" aria-live="polite"></output>
+        </form>
+      </div>
+      <div class="examples">
+        <span>Try:</span>
+        <button type="button" class="chip" data-mode="toPolish" data-expr="(a + b) / c">(a + b) / c</button>
+        <button type="button" class="chip" data-mode="toPolish" data-expr="3 * (6 - 4 ^ (3 / (0 - 7)))">3 * (6 - 4 ^ (3 / (0 - 7)))</button>
+        <button type="button" class="chip" data-mode="fromPolish" data-expr="a b ^ c +">a b ^ c +</button>
+        <button type="button" class="chip" data-mode="toPolish" data-expr="(a4 - b5 ^ (-5t)) * (36 / 80)">(a4 - b5 ^ (-5t)) * (36 / 80)</button>
+      </div>
+      <p class="hint">Tokens are separated by spaces. A <span class="badge">ⓜ cached</span> badge means the result came from the <code>Memoizator</code> pattern cache. Results are copied to the clipboard, as in the desktop app.</p>
+    </section>
+
+    <!-- Console mode: the ConsoleIOI prompt loop -->
+    <section id="console-mode" aria-labelledby="console-title">
+      <h2 id="console-title">Console mode</h2>
+      <p class="hint">The <code>ConsoleIOI</code> prompt loop. Type <code>.h</code> for commands.</p>
+      <div class="terminal" id="terminal">
+        <div id="term-log" class="term-log" aria-live="polite"></div>
+        <form id="term-form" class="term-line" autocomplete="off">
+          <label for="term-input">Enter a case/command:</label>
+          <input id="term-input" type="text" spellcheck="false" autocapitalize="off" autocorrect="off" enterkeyhint="send" placeholder=".h for help" disabled>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Operators: <code>+ - * / ^</code>, parentheses, negative operands like <code>(-5t)</code>, multi-character names. MIT licensed.</p>
+  </footer>
+
+  <!-- Brython 3.12 runs text/python scripts automatically once the page loads. -->
+  <script type="text/python" src="app.py"></script>
+</body>
+</html>

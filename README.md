@@ -2,6 +2,8 @@
 
 A Python interpreter that converts arithmetic expressions to and from Polish (prefix) notation. It runs as an interactive console application or as a graphical desktop window.
 
+**Live demo:** [andrew1407.github.io/from_Poland_with_love](https://andrew1407.github.io/from_Poland_with_love/) — both modes running in the browser.
+
 ## Overview
 
 The core engine, [`PolishNotation`](src/interpreter/Interpreter.py), performs two conversions:
