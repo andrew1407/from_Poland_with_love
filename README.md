@@ -1,5 +1,11 @@
 # from_Poland_with_love
 
+<p align="center">
+  <a href="https://andrew1407.github.io/from_Poland_with_love/" title="Open the app in the browser">
+    <img src="docs/icon.svg" alt="From Poland with Love" width="96" height="96">
+  </a>
+</p>
+
 [![CI](https://github.com/andrew1407/from_Poland_with_love/actions/workflows/ci.yml/badge.svg)](https://github.com/andrew1407/from_Poland_with_love/actions/workflows/ci.yml)
 [![GitHub Pages](https://github.com/andrew1407/from_Poland_with_love/actions/workflows/pages.yml/badge.svg)](https://github.com/andrew1407/from_Poland_with_love/actions/workflows/pages.yml)
 
