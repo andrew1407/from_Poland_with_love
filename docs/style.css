@@ -1,21 +1,33 @@
 :root {
-  --bg: #000;
-  --panel: #0a0a0a;
-  --aqua: #00ffff;
-  --aqua-dim: #00b3b3;
-  --text: #d8ffff;
-  --muted: #7fa9a9;
-  --line: #0f3d3d;
-  --frame: #1f7a7a;
-  --err: #ff6b6b;
-  --ok: #6bff9e;
+  --bg: #f2fafa; --panel: #ffffff; --aqua: #00737d; --aqua-dim: #3a9aa2; --text: #0b2a2e; --muted: #4f7276;
+  --line: #cde4e5; --frame: #84c3c7; --err: #c0362c; --ok: #1f8a4c;
+  --field: #ffffff; --field-active: #c8ebec; --button: #ffffff; --titlebar: #dceff0; --title-ink: #0b3a3e;
+  --term-bg: #fbfefe; --term-ink: #1b2b2d; --edge: #cde4e5;
+  --glow: rgba(0, 115, 125, .2); --halo: rgba(0, 90, 100, .1); --halo-soft: rgba(0, 90, 100, .07);
+  color-scheme: light;
   --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
   --sans: Arial, Helvetica, sans-serif;
 }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #000; --panel: #0a0a0a; --aqua: #00ffff; --aqua-dim: #00b3b3; --text: #d8ffff; --muted: #7fa9a9;
+    --line: #0f3d3d; --frame: #1f7a7a; --err: #ff6b6b; --ok: #6bff9e;
+    --field: #062222; --field-active: #0a3333; --button: #000; --titlebar: #101c1c; --title-ink: #cfe;
+    --term-bg: #050505; --term-ink: #e6e6e6; --edge: #000;
+    --glow: rgba(0, 255, 255, .18); --halo: rgba(0, 255, 255, .08); --halo-soft: rgba(0, 255, 255, .06);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #000; --panel: #0a0a0a; --aqua: #00ffff; --aqua-dim: #00b3b3; --text: #d8ffff; --muted: #7fa9a9;
+  --line: #0f3d3d; --frame: #1f7a7a; --err: #ff6b6b; --ok: #6bff9e;
+  --field: #062222; --field-active: #0a3333; --button: #000; --titlebar: #101c1c; --title-ink: #cfe;
+  --term-bg: #050505; --term-ink: #e6e6e6; --edge: #000;
+  --glow: rgba(0, 255, 255, .18); --halo: rgba(0, 255, 255, .08); --halo-soft: rgba(0, 255, 255, .06);
+  color-scheme: dark;
+}
 
 * { box-sizing: border-box; }
-
-html { color-scheme: dark; }
 
 body {
   margin: 0;
@@ -35,6 +47,8 @@ code { font-family: var(--mono); color: var(--aqua); font-size: .92em; }
 }
 
 .hero { padding-top: 56px; padding-bottom: 0; }
+.hero-top { display: flex; align-items: flex-start; gap: 12px; }
+.hero-top .theme-toggle { margin-top: 6px; }
 .hero h1 {
   margin: 0;
   color: var(--aqua);
@@ -55,15 +69,15 @@ h2 { color: var(--aqua); margin: 0 0 4px; font-size: 1.4rem; }
   border: 1px solid var(--frame);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 0 0 1px #000, 0 12px 40px rgba(0, 255, 255, .08);
+  box-shadow: 0 0 0 1px var(--edge), 0 12px 40px var(--halo);
 }
 .tk-titlebar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 6px 12px;
-  background: #101c1c;
-  color: #cfe;
+  background: var(--titlebar);
+  color: var(--title-ink);
   border-bottom: 1px solid var(--frame);
   font-size: .85rem;
 }
@@ -88,7 +102,7 @@ h2 { color: var(--aqua); margin: 0 0 4px; font-size: 1.4rem; }
   font: inherit;
   font-family: var(--sans);
   padding: 6px 10px;
-  background: #062222;
+  background: var(--field);
   color: var(--text);
   caret-color: var(--aqua);
   border: 1px solid var(--aqua-dim);
@@ -99,11 +113,11 @@ h2 { color: var(--aqua); margin: 0 0 4px; font-size: 1.4rem; }
 .tk-entry:focus {
   outline: none;
   border-color: var(--aqua);
-  box-shadow: 0 0 0 3px rgba(0, 255, 255, .18);
+  box-shadow: 0 0 0 3px var(--glow);
 }
 .tk-button, .tk-option {
   font: inherit;
-  background: #000;
+  background: var(--button);
   color: var(--aqua);
   border: 1px solid var(--aqua-dim);
   border-radius: 4px;
@@ -111,10 +125,10 @@ h2 { color: var(--aqua); margin: 0 0 4px; font-size: 1.4rem; }
   cursor: pointer;
   transition: background .15s, border-color .15s;
 }
-.tk-button:hover, .tk-option:hover { border-color: var(--aqua); background: #062222; }
-.tk-button:focus-visible, .tk-option:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(0, 255, 255, .18); border-color: var(--aqua); }
+.tk-button:hover, .tk-option:hover { border-color: var(--aqua); background: var(--field-active); }
+.tk-button:focus-visible, .tk-option:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--glow); border-color: var(--aqua); }
 .tk-button { grid-area: button; }
-.tk-button:active { background: #0a3333; }
+.tk-button:active { background: var(--field-active); }
 .tk-button:disabled { opacity: .5; cursor: wait; }
 .tk-option { grid-area: option; }
 .tk-output {
@@ -156,14 +170,14 @@ h2 { color: var(--aqua); margin: 0 0 4px; font-size: 1.4rem; }
 
 /* ---- Terminal ---- */
 .terminal {
-  background: #050505;
+  background: var(--term-bg);
   border: 1px solid var(--frame);
-  box-shadow: 0 12px 40px rgba(0, 255, 255, .06);
+  box-shadow: 0 12px 40px var(--halo-soft);
   border-radius: 8px;
   padding: 16px;
   font-family: var(--mono);
   font-size: .95rem;
-  color: #e6e6e6;
+  color: var(--term-ink);
   cursor: text;
 }
 .term-log { max-height: min(340px, 50vh); overflow-y: auto; white-space: pre-wrap; word-break: break-word; }

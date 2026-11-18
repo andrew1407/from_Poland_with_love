@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#f2fafa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
   <title>From Poland with Love</title>
   <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <script src="theme.js"></script>
   <meta name="description" content="Infix ⇄ Polish notation interpreter, running the original Python sources in the browser with Brython.">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.12.5/brython.min.js"></script>
@@ -13,7 +15,10 @@
 </head>
 <body>
   <header class="hero">
-    <h1>FROM POLAND WITH LOVE <span class="flag" role="img" aria-label="Polish flag">🇵🇱</span></h1>
+    <div class="hero-top">
+      <h1>FROM POLAND WITH LOVE <span class="flag" role="img" aria-label="Polish flag">🇵🇱</span></h1>
+      <button class="theme-toggle" data-theme-toggle></button>
+    </div>
     <p class="tagline">Convert arithmetic expressions to and from Polish notation — the original Python interpreter, running in your browser.</p>
     <p class="meta">
       <a href="https://github.com/Andrew1407/from_Poland_with_love">Source on GitHub</a>
