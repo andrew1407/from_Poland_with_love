@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://andrew1407.github.io/from_Poland_with_love/" title="Open the app in the browser">
-    <img src="docs/icon.svg" alt="From Poland with Love" width="96" height="96">
+    <img src="docs/icon.svg" alt="From Poland with Love" width="140" height="140">
   </a>
 </p>
 
