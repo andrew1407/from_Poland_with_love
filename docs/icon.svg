@@ -1,14 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Prefix (Polish) notation "+ 1 2": the operator comes first and its arc spans both operands -->
-  <path d="M13 22C18 6 46 6 51 25" fill="none" stroke="#dc143c" stroke-width="3" stroke-linecap="round"/>
-  <path d="M46.3 21.8 51 25l1-5.6" fill="none" stroke="#dc143c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M23 37 27 41.5M43.5 43.5 46.5 42" stroke="#dc143c" stroke-width="3" stroke-linecap="round"/>
-  <rect x="3" y="24" width="20" height="20" rx="5" fill="#dc143c"/>
-  <path d="M8 34h10M13 29v10" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/>
-  <circle cx="35" cy="45" r="9" fill="#fff" stroke="#dc143c" stroke-width="3"/>
-  <circle cx="54" cy="40" r="8.5" fill="#fff" stroke="#dc143c" stroke-width="3"/>
-  <g fill="#dc143c" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="13" text-anchor="middle">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" data-badge="1">
+  <!-- Prefix (Polish) notation "+ 1 2": the operator comes first and its arc spans both operands, on a round outlined badge -->
+  <circle cx="32" cy="32" r="30.5" fill="#ffffff" stroke="#dc143c" stroke-width="3"/>
+  <svg x="12.5" y="12.5" width="39" height="39" viewBox="0 0 64 64">
+    <path d="M13 22C18 6 46 6 51 25" fill="none" stroke="#dc143c" stroke-width="3" stroke-linecap="round"/>
+    <path d="M46.3 21.8 51 25l1-5.6" fill="none" stroke="#dc143c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M23 37 27 41.5M43.5 43.5 46.5 42" stroke="#dc143c" stroke-width="3" stroke-linecap="round"/>
+    <rect x="3" y="24" width="20" height="20" rx="5" fill="#dc143c"/>
+    <path d="M8 34h10M13 29v10" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/>
+    <circle cx="35" cy="45" r="9" fill="#fff" stroke="#dc143c" stroke-width="3"/>
+    <circle cx="54" cy="40" r="8.5" fill="#fff" stroke="#dc143c" stroke-width="3"/>
+    <g fill="#dc143c" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="13" text-anchor="middle">
     <text x="35" y="49.6">1</text>
     <text x="54" y="44.6">2</text>
-  </g>
+    </g>
+  </svg>
 </svg>
